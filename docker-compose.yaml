@@ -1,0 +1,9 @@
+services:
+
+  ai-rag-template-chat:
+    image: ghcr.io/treehousehl/ai-rag-template-chat
+    network_mode: host
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536

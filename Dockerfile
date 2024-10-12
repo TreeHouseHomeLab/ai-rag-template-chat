@@ -1,9 +1,4 @@
-FROM nginx:1.17.2-alpine as build
-
-LABEL name="mia_template_service_name_placeholder" \
-  description="%CUSTOM_PLUGIN_SERVICE_DESCRIPTION%" \
-  eu.mia-platform.url="https://www.mia-platform.eu" \
-  eu.mia-platform.version="0.1.0"
+FROM nginx:1.17.2-alpine AS build
 
 COPY nginx /etc/nginx
 
@@ -16,3 +11,7 @@ WORKDIR /usr/static
 COPY ./build .
 
 USER nginx
+
+EXPOSE 8080
+
+CMD ["nginx", "-g", "daemon off;"]
